@@ -136,6 +136,7 @@ def decode_text(image_data, n: int) -> str:
             result += decoded_byte
         cycle_position = (cycle_position + 1) % (n + 1)
         if result[-2:] == "@@":
+            result = result[:-2]
             break
     result = "".join(i for i in result if i not in SPECIAL_SYMBOLS)
     return result
